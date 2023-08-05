@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@200;600&display=swap');
+
+/* TYPOGRAPHY */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+    background-color: #000;
+    color: #fff;
+}
+
+.grid-ex-2 div p {
+    color: #333;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* LAYOUT & APPEARANCE */
+main {
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+section {
+    margin: 4em 0;
+}
+
+div.image {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+article {
+    border: 2px dashed #999;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+/* CHALLENGE ONE */
+
+/* STEP ONE - Using the first section (.grid-ex-1), create a grid that allows for as many columns as will fit in the available space, with 100px as the  minimum size of the column and 1fr as the maximum column. Allow for auto-placement to take care of grid item placement  */
+.grid-ex-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 1em;
+}
+
+
+/* STEP TWO - uncomment out the remaining articles in .grid-ex-1. What do you notice?  Are these articles part of the explicit grid or implicit grid? */
+/* the articles are part of the implicit grid. */
+
+/* CHALLENGE TWO */
+
+/* STEP ONE */
+/* Using grid, recreate the layout displayed in the image included in this section. Without changing the order of content in the HTML, how could you make Item One appear on top of Item Two? */
+
+.grid-ex-2 {
+    display: grid;
+    height: 50vh;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+    width: 90%;
+    margin: auto;
+}
+
+#itemone {
+    background-color: rgba(254, 104, 71, 0.6);
+    grid-column: 1 / span 5;
+    grid-row: 1 / span 1;
+    z-index: 2;
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+#itemtwo {
+    background-color: rgba(251, 177, 60, 0.5);
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    min-height: calc(100% + 60px);
+    z-index: 1;
+    border: 3px dashed #fff;
+    color: #fff;
+}
